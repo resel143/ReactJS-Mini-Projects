@@ -1,0 +1,15 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const fname = 'Reshul';
+const lname = 'Gomez';
+const d= new Date();
+
+ReactDOM.render(
+    <React.Fragment>
+      <h1>Hi Reshul</h1>
+      <p>Todate is {d.getDate()}</p>
+      <p>To Time is {d.getHours()}</p>
+    </React.Fragment>,
+    document.getElementById('root')
+);
