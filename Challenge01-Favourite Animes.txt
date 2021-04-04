@@ -1,0 +1,18 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+  // react challenge to add Netflix series  
+
+  <React.Fragment>
+    <h1>My Favourite Animes</h1>
+    <p>
+    <ol>
+      <li>The Promised Neverland</li>
+      <li>Death Note</li>
+
+    </ol>
+    </p>
+  </React.Fragment>
+  
+  ,document.getElementById('root'));
