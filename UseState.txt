@@ -12,3 +12,28 @@ $('button')
   })
 
 console.log('App started')
+
+
+# Use State
+
+import { useState } from "react";
+import "./styles.css";
+
+
+
+export default function App() {
+
+  const [i, setState] = useState(0);
+  
+function IncVal(){
+   setState(i+1);
+}
+  return (
+    <div className="App">
+        <h1>{i}</h1>
+      <button onClick={IncVal}>
+        click here!
+      </button>
+    </div>
+  );
+}
