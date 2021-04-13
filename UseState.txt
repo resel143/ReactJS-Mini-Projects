@@ -1,0 +1,14 @@
+import 'bootstrap@4.6.0'
+import $ from 'jquery'
+
+let i=0;
+const getvalue = document.querySelector('.number');
+const heading= document.createElement('h1');
+getvalue.appendChild(heading);
+$('button')
+  .html('Click me') // Try edit it...
+  .on('click', () => {
+    heading.innerHTML=i++;
+  })
+
+console.log('App started')
