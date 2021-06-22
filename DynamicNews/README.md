@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Output:
+### Loading while fetching Database
+![](https://github.com/resel143/ReactJS-Mini-Projects/blob/master/DynamicNews/Images/Loading.png)
+
+### Search Bar for Relevant and Categorical News
+![](https://github.com/resel143/ReactJS-Mini-Projects/blob/master/DynamicNews/Images/FSD%20(1).png)
+### Search Bar Output
+![](https://github.com/resel143/ReactJS-Mini-Projects/blob/master/DynamicNews/Images/FSD%20(2).png)
