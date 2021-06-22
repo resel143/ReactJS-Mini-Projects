@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+    font-size: 3rem;
+    color:#560bad;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    background-color: #fefae0;
+    padding: 20px;
+}
+body{
+    background-color: #e9edc9
+}
+form{
+    text-align: center;
+}
+p{
+    margin: 20px;
+    color:#f72585;
+    font-size: 1.2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 10px;
+    font-weight: 800;
+}
