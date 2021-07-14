@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## The Preview:
+![](https://github.com/resel143/ReactJS-Mini-Projects/blob/master/Hospital_Dashboard/HospDashboard.gif)
+
+
+
 ## Dependencies as in package.json
 ### Chart.js
 ### react
