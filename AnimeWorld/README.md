@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## The Working:
+![](https://github.com/resel143/ReactJS-Mini-Projects/blob/master/AnimeWorld/finaldone.gif)
+
 ## Available Scripts
 
 In the project directory, you can run:
