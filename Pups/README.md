@@ -1,3 +1,6 @@
+# The Working:
+![](https://github.com/resel143/ReactJS-Mini-Projects/blob/master/Pups/doggi.gif)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
