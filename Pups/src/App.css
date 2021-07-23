@@ -1,0 +1,21 @@
+*{
+    padding:0;
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    background-color: #F4F387;
+}
+
+button{
+        padding:10px;
+        margin:50px 0 20px 0 ;
+        background-color: white;
+        width: 250px;
+        height: 50px;
+        color: black;
+        border: 2px solid #4CAF50; /* Green */
+}
+
+button:hover{
+    background-color: #4CAF50;
+    color: white;
+}
