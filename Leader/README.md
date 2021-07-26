@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# The Working
+![](https://github.com/resel143/ReactJS-Mini-Projects/blob/master/Leader/leader.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
