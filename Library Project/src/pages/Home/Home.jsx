@@ -13,8 +13,9 @@ const Home = () => {
 
 
     return <>
-            <h1>Hello from Fellow!</h1>
-            <p>{JSON.stringify(data)}</p>
+           <h1 className="text-4xl font-bold text-blue-600">
+            Tailwind v3 is working 🚀
+            </h1>
         </>
 }
 
