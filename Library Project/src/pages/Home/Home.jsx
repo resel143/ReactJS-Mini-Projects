@@ -1,92 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [books, setBooks] = useState([
-    {
-      id: 1,
-      title: "The Silent Forest",
-      author: "Arjun Mehta",
-      published_date: "2022-01-02",
-      genre: "Mystery",
-      isbn: "978-93-12345-01-2",
-      price: 399.0,
-      rating: 4.5,
-      pages: 320,
-      language: "English",
-      publisher: "BlueLeaf Publications",
-      available: true,
-    },
-    {
-      id: 2,
-      title: "Code Beyond Logic",
-      author: "Reshul Wate",
-      published_date: "2023-03-15",
-      genre: "Technology",
-      isbn: "978-93-12345-02-9",
-      price: 599.0,
-      rating: 4.8,
-      pages: 410,
-      language: "English",
-      publisher: "TechVerse",
-      available: true,
-    },
-    {
-      id: 3,
-      title: "Echoes of Time",
-      author: "Neha Sharma",
-      published_date: "2021-11-21",
-      genre: "Historical Fiction",
-      isbn: "978-93-12345-03-6",
-      price: 299.0,
-      rating: 4.1,
-      pages: 280,
-      language: "Hindi",
-      publisher: "Saffron Ink",
-      available: false,
-    },
-    {
-      id: 4,
-      title: "AI for Humans",
-      author: "Dr. Vikram Rao",
-      published_date: "2024-06-10",
-      genre: "Artificial Intelligence",
-      isbn: "978-93-12345-04-3",
-      price: 749.0,
-      rating: 4.9,
-      pages: 520,
-      language: "English",
-      publisher: "FutureMind Press",
-      available: true,
-    },
-    {
-      id: 5,
-      title: "Minimal Life",
-      author: "Aanya Kapoor",
-      published_date: "2020-09-05",
-      genre: "Self Help",
-      isbn: "978-93-12345-05-0",
-      price: 249.0,
-      rating: 3.9,
-      pages: 190,
-      language: "English",
-      publisher: "ZenHouse",
-      available: true,
-    },
-    {
-      id: 6,
-      title: "The Last Algorithm",
-      author: "Kunal Deshmukh",
-      published_date: "2025-01-01",
-      genre: "Sci-Fi",
-      isbn: "978-93-12345-06-7",
-      price: 899.0,
-      rating: 4.7,
-      pages: 610,
-      language: "English",
-      publisher: "Nova Reads",
-      available: false,
-    },
-  ]);
+  const [books, setBooks] = useState([]);
+
+
+  useEffect(() =>{
+    fetch('http://127.0.0.1:8000/api/books/')
+     .then((res)=> res.json())
+     .then(res => setBooks(res.data))
+     .catch(err => console.error(err))
+  },[])
+
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-100 to-blue-50 px-8 py-6">
