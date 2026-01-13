@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import BookCard from "../../component/BookCard";
 import AddBookModal from "../../component/Modals/AddBookModal";
 import EditBookModal from "../../component/Modals/EditBookModal";
@@ -9,6 +9,7 @@ const Home = () => {
   const [selectedBook, setSelectedBook] = useState(null);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [search, setSearch] = useState("")
+  const debounceTimer = useRef(null);
 
     const fetchBooks = () => {
       fetch("http://127.0.0.1:8000/api/books/")
@@ -31,7 +32,19 @@ const Home = () => {
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearch(value);
-    console.log("Search value:", value);
+
+    if (debounceTimer.current) {
+      clearTimeout(debounceTimer.current);
+    }
+
+    debounceTimer.current = setTimeout(() => {
+      console.log("Search value:", value);
+
+      fetch(`http://127.0.0.1:8000/api/books/${value}`)
+        .then((res) => res.json())
+        .then((res) => setBooks(res.data))
+        .catch((err) => console.error(err));
+    }, 500);
   };
 
 
