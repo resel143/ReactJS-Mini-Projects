@@ -67,7 +67,7 @@ All the following issues are **completed and closed**:
 
 ## 🛠️ Installation & Setup
 
-### Backend (Django)
+### Backend (Django) - link[https://github.com/resel143/reshul-django/tree/main/newbackend]
 
 ```bash
 git clone https://github.com/resel143/ReactJS-Mini-Projects.git
