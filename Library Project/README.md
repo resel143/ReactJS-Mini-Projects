@@ -1,16 +1,79 @@
-# React + Vite
+# 📚 Library Management Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack **Library Management System** built with  
+**Django (Backend)** and **React.js (Frontend)**.  
+The project focuses on **backend-driven CRUD operations**, clean API integrations, debounced search, validations, and a modern UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🖼️ Demo
 
-## React Compiler
+Here’s a quick demo of the project running:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![Library Project Demo](https://github.com/resel143/ReactJS-Mini-Projects/blob/master/Library%20Project/src/assets/Demo-gif.gif)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Tech Stack
+
+### Backend
+- **Django**
+- Django REST Framework (DRF)
+- RESTful APIs
+- SQLite / PostgreSQL (configurable)
+
+### Frontend
+- **React.js**
+- Tailwind CSS
+- Fetch API
+- Toast Notifications
+- Debounced Search
+
+---
+
+## 🎯 Project Features
+
+- 📖 View all books (GET)
+- ➕ Add new books with validations
+- ✏️ Edit existing book details
+- ❌ Delete books
+- 🔍 Search books with **debouncing**
+- 🔔 Toast notifications for CRUD actions
+- 🎨 Responsive UI using Tailwind CSS
+- ⚡ Optimized API-driven architecture
+
+---
+
+## 🧩 Completed Issues / Work Log
+
+All the following issues are **completed and closed**:
+
+- ✅ Library Project – CRUD Backend & Frontend
+- ✅ FE CRUD API Integration – **GET**
+- ✅ FE CRUD API Integration – **CREATE**
+- ✅ FE CRUD API Integration – **UPDATE**
+- ✅ FE CRUD API Integration – **DELETE**
+- ✅ Search Functionality – UI
+- ✅ Search UI with Debouncing
+- ✅ Add Book Form UI
+- ✅ Add Form Validations
+- ✅ Edit Book Details UI
+- ✅ Toast Messages for CRUD Operations
+- ✅ Tailwind CSS Integration
+- ✅ Demo GIF Added
+
+---
+
+
+## 🛠️ Installation & Setup
+
+### Backend (Django)
+
+```bash
+git clone https://github.com/resel143/ReactJS-Mini-Projects.git
+cd backend
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
