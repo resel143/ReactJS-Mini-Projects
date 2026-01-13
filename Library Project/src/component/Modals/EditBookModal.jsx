@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const EditBookModal = ({ isOpen, onClose, book }) => {
+const EditBookModal = ({ isOpen, onClose, book, onSuccess }) => {
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -59,6 +59,17 @@ const EditBookModal = ({ isOpen, onClose, book }) => {
       publisher: String(formData.publisher),
       available: Boolean(formData.available),
     };
+
+    fetch("http://127.0.0.1:8000/api/books/update",{
+        method:'PATCH',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then((res)=> res.json())
+    .then((res) => onSuccess())
+    .catch(err => console.error(err))
 
     console.log("Update Payload:", payload);
     onClose();
