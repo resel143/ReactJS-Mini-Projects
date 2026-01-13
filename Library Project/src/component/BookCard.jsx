@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 const BookCard = ({ book, onSuccess, onEdit }) => {
 
     const handleDelete = () => {
@@ -11,8 +13,10 @@ const BookCard = ({ book, onSuccess, onEdit }) => {
             }),
         })
         .then((res)=> res.json())
-        .then((res)=> onSuccess())
-        .catch(err => console.error(err))
+        .then((res)=> {
+          toast.success(res.message || 'Book deleted!');
+          onSuccess()})
+         .catch((err) => toast.error( err.error || 'Something went wrong!'));
     }
 
 
