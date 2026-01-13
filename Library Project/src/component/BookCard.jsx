@@ -1,4 +1,21 @@
-const BookCard = ({ book }) => {
+const BookCard = ({ book, onSuccess }) => {
+
+    const handleDelete = () => {
+        fetch('http://127.0.0.1:8000/api/books/delete',{
+            method: 'DELETE',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: book.id,
+            }),
+        })
+        .then((res)=> res.json())
+        .then((res)=> onSuccess())
+        .catch(err => console.error(err))
+    }
+
+
   return (
     <div
       className="group relative rounded-2xl bg-gradient-to-br from-white via-blue-50 to-indigo-50 
@@ -44,7 +61,7 @@ const BookCard = ({ book }) => {
           <button className="px-4 py-2 text-sm font-medium rounded-md border border-indigo-300 text-indigo-700 hover:bg-indigo-50 transition">
             Edit
           </button>
-          <button className="px-4 py-2 text-sm font-medium rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:opacity-90 transition">
+          <button onClick={() => handleDelete()} className="px-4 py-2 text-sm font-medium rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:opacity-90 transition">
             Delete
           </button>
         </div>
