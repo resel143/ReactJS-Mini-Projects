@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const EditBookModal = ({ isOpen, onClose, book, onSuccess }) => {
   const [formData, setFormData] = useState({
@@ -68,8 +69,12 @@ const EditBookModal = ({ isOpen, onClose, book, onSuccess }) => {
         body: JSON.stringify(payload)
     })
     .then((res)=> res.json())
-    .then((res) => onSuccess())
-    .catch(err => console.error(err))
+    .then((res) => {
+        toast.success(res.message || 'Book details updated!');
+        onSuccess()
+    }
+    )
+     .catch((err) => toast.error( err.error || 'Something went wrong!'));
 
     console.log("Update Payload:", payload);
     onClose();

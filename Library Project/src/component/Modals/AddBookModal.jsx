@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const AddBookModal = ({ isOpen, onClose, onSuccess }) => {
   const [formData, setFormData] = useState({
@@ -100,8 +101,10 @@ const AddBookModal = ({ isOpen, onClose, onSuccess }) => {
         body: JSON.stringify(payload),
     })
     .then((res) => res.json())
-    .then((res) => console.log("Add book response:", res))
-    .catch((err) => console.error(err));
+    .then((res) => {
+      toast.success(res.message || 'Book added successfully!');
+    })
+    .catch((err) => toast.error( err.error || 'Something went wrong!'));
 
 
     setFormData({
