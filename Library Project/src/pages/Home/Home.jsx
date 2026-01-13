@@ -6,12 +6,17 @@ const Home = () => {
   const [books, setBooks] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/books/")
-      .then((res) => res.json())
-      .then((res) => setBooks(res.data))
-      .catch((err) => console.error(err));
-  }, []);
+    const fetchBooks = () => {
+      fetch("http://127.0.0.1:8000/api/books/")
+        .then((res) => res.json())
+        .then((res) => setBooks(res.data))
+        .catch((err) => console.error(err));
+    };
+
+
+    useEffect(() => {
+      fetchBooks();
+    }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-100 to-blue-50 px-8 py-6">
@@ -45,6 +50,7 @@ const Home = () => {
       <AddBookModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        onSuccess={() => fetchBooks()}
       />
     </div>
   );
