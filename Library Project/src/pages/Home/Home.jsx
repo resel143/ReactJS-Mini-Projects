@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import BookCard from "../../component/BookCard";
+import AddBookModal from "../../component/Modals/AddBookModal";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/api/books/")
@@ -16,7 +18,7 @@ const Home = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-12">
         <div>
-          <h1 className="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-700 via-blue-600 to-cyan-500 bg-clip-text text-transparent drop-shadow-sm">
+          <h1 className="text-4xl font-extrabold bg-gradient-to-r from-indigo-700 to-blue-600 bg-clip-text text-transparent">
             Library Dashboard
           </h1>
           <p className="text-indigo-700 mt-2">
@@ -24,7 +26,10 @@ const Home = () => {
           </p>
         </div>
 
-        <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2.5 rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2.5 rounded-lg shadow-lg"
+        >
           + Add Book
         </button>
       </div>
@@ -35,6 +40,12 @@ const Home = () => {
           <BookCard key={book.id} book={book} />
         ))}
       </div>
+
+      {/* Modal */}
+      <AddBookModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };
