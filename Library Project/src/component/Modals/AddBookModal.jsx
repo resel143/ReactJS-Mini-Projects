@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddBookModal = ({ isOpen, onClose }) => {
+const AddBookModal = ({ isOpen, onClose, onSuccess }) => {
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -90,21 +90,34 @@ const AddBookModal = ({ isOpen, onClose }) => {
       available: Boolean(formData.available),
     };
 
-    console.log("New Book Payload:", payload);
+    console.log(payload)
+
+   fetch("http://127.0.0.1:8000/api/books/add", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+    })
+    .then((res) => res.json())
+    .then((res) => console.log("Add book response:", res))
+    .catch((err) => console.error(err));
+
 
     setFormData({
-    title: "",
-    author: "",
-    published_date: "",
-    genre: "",
-    isbn: "",
-    price: "",
-    rating: "",
-    pages: "",
-    language: "",
-    publisher: "",
-    available: true,
-  })
+        title: "",
+        author: "",
+        published_date: "",
+        genre: "",
+        isbn: "",
+        price: "",
+        rating: "",
+        pages: "",
+        language: "",
+        publisher: "",
+        available: true,
+    })
+    onSuccess();
     onClose();
   };
 
