@@ -8,6 +8,7 @@ const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
   const [isEditOpen, setIsEditOpen] = useState(false);
+  const [search, setSearch] = useState("")
 
     const fetchBooks = () => {
       fetch("http://127.0.0.1:8000/api/books/")
@@ -26,6 +27,13 @@ const Home = () => {
     setSelectedBook(book);
     setIsEditOpen(true);
   };
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearch(value);
+    console.log("Search value:", value);
+  };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-100 to-blue-50 px-8 py-6">
@@ -47,6 +55,19 @@ const Home = () => {
           + Add Book
         </button>
       </div>
+
+      {/* Search Bar */}
+      <div className="mb-8 flex justify-end">
+        <input
+          type="text"
+          value={search}
+          onChange={handleSearchChange}
+          placeholder="Search by title..."
+          className="w-full sm:w-80 px-4 py-2 rounded-lg border border-indigo-300 
+                    focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
+
 
       {/* Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
