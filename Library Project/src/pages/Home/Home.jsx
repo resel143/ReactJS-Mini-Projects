@@ -66,6 +66,7 @@ const Home = () => {
         isOpen={isEditOpen}
         book={selectedBook}
         onClose={() => setIsEditOpen(false)}
+        onSuccess={() => fetchBooks()}
       />
     </div>
   );
