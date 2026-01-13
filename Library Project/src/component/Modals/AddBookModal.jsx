@@ -91,6 +91,20 @@ const AddBookModal = ({ isOpen, onClose }) => {
     };
 
     console.log("New Book Payload:", payload);
+
+    setFormData({
+    title: "",
+    author: "",
+    published_date: "",
+    genre: "",
+    isbn: "",
+    price: "",
+    rating: "",
+    pages: "",
+    language: "",
+    publisher: "",
+    available: true,
+  })
     onClose();
   };
 
