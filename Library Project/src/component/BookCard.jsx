@@ -1,4 +1,4 @@
-const BookCard = ({ book, onSuccess }) => {
+const BookCard = ({ book, onSuccess, onEdit }) => {
 
     const handleDelete = () => {
         fetch('http://127.0.0.1:8000/api/books/delete',{
@@ -58,7 +58,7 @@ const BookCard = ({ book, onSuccess }) => {
 
         {/* Actions */}
         <div className="mt-6 flex justify-end gap-3">
-          <button className="px-4 py-2 text-sm font-medium rounded-md border border-indigo-300 text-indigo-700 hover:bg-indigo-50 transition">
+          <button   onClick={() => onEdit(book)} className="px-4 py-2 text-sm font-medium rounded-md border border-indigo-300 text-indigo-700 hover:bg-indigo-50 transition">
             Edit
           </button>
           <button onClick={() => handleDelete()} className="px-4 py-2 text-sm font-medium rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:opacity-90 transition">

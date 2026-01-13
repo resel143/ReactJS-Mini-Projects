@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import BookCard from "../../component/BookCard";
 import AddBookModal from "../../component/Modals/AddBookModal";
+import EditBookModal from "../../component/Modals/EditBookModal";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedBook, setSelectedBook] = useState(null);
+  const [isEditOpen, setIsEditOpen] = useState(false);
 
     const fetchBooks = () => {
       fetch("http://127.0.0.1:8000/api/books/")
@@ -17,6 +20,12 @@ const Home = () => {
     useEffect(() => {
       fetchBooks();
     }, []);
+
+    
+  const openEditModal = (book) => {
+    setSelectedBook(book);
+    setIsEditOpen(true);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-100 to-blue-50 px-8 py-6">
@@ -42,7 +51,7 @@ const Home = () => {
       {/* Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {books.map((book) => (
-          <BookCard key={book.id} book={book} onSuccess={() => fetchBooks()}/>
+          <BookCard key={book.id} book={book} onSuccess={() => fetchBooks()} onEdit={openEditModal}/>
         ))}
       </div>
 
@@ -51,6 +60,12 @@ const Home = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSuccess={() => fetchBooks()}
+      />
+
+      <EditBookModal
+        isOpen={isEditOpen}
+        book={selectedBook}
+        onClose={() => setIsEditOpen(false)}
       />
     </div>
   );
